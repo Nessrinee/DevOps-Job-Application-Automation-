@@ -1,5 +1,6 @@
 import sqlite3 # import the SQlite module
 from config import DB_PATH
+from datetime import datetime
 
 
 # Create Table function
@@ -17,8 +18,8 @@ def create_table ():
         status TEXT DEFAULT 'new'    
         ) 
     """)
-conn.commit()
-conn.close()
+    conn.commit()
+    conn.close()
 
 # Function to check if job_id exists
 def job_exists(job_id):
@@ -32,12 +33,35 @@ def job_exists(job_id):
 
 
 # INSERT Function
-def insert_job()
+def insert_job(job):
+    if job_exists(job["job_id"]):
+        return
 
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    date = datetime.now().strftime("%Y-%m-%d")
+    cursor.execute("""
+        INSERT INTO jobs (job_id, title, company, description, apply_link, date_fetched, status)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (job["job_id"], job["title"], job["company"], job["description"], job["apply_link"], date, "new"))
+    conn.commit()
+    conn.close()
 
-#
-def get_new_jobs()
+# Get NEW jobs
+def get_new_jobs():
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM jobs WHERE status = 'new'")
+    results = cursor.fetchall()
+    conn.close()
+    return results
+
 
 
 # UPDATE Function
-def update_job_status()
+def update_job_status(id_job, status):
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
+    cursor.execute("UPDATE jobs SET status = ? WHERE job_id = ?", (status, id_job))
+    conn.commit()
+    conn.close()
