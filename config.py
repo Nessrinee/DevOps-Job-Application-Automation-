@@ -1,8 +1,11 @@
 from pathlib import Path
 
 # API Keys 
-RAPIDAPI_KEY: str = ""
 ANTHROPIC_API_KEY: str = ""
+
+# Adzuna Credentials
+ADZUNA_APP_ID: str = "57320866"      #  app_id 
+ADZUNA_APP_KEY: str = "e88e50848c8f082f67a10541a6f0268f"     #  app_key
 
 # Job Search Parameters 
 KEYWORDS: list = [
