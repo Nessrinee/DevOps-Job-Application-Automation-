@@ -24,7 +24,6 @@ def fetch_jobs():
                     "apply_link": job["redirect_url"]
                 }
                 insert_job(dictionnaire)
-       
         else:
             print("Erreur:", response.status_code)
             continue 
