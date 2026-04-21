@@ -2,9 +2,12 @@ import json
 from groq import Groq
 from config import GROQ_API_KEY, CV_MAIN_PATH, MATCH_THRESHOLD
 def match_cv(job):
+    # Initialize Groq client using API key
     client = Groq(api_key=GROQ_API_KEY)
+    # Load the main CV content from file
     with open(CV_MAIN_PATH, 'r') as f:
         cv_content = f.read()
+        # Build the prompt for the LLM to evaluate CV vs job match
     prompt = f""" 
     ROLE: You are an expert HR recruiter specialized in DevOps and Cloud Engineering roles.
 
@@ -26,6 +29,7 @@ def match_cv(job):
 
     No explanation. No text before or after. ONLY the JSON.
     """
+    # Call Groq LLM to generate CV-job match analysis
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
@@ -39,6 +43,7 @@ def match_cv(job):
     # Step 4 -- Parser JSON 
     try:
         result = json.loads(result_text.strip())
+        # Apply matching threshold filter
         if result["score"] >= MATCH_THRESHOLD:
             return result
         return None    #  if the score is too low
