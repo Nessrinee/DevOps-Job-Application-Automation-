@@ -43,6 +43,7 @@ def tailor_cv(job, match_result):
     # Extract raw response from the LLM
     result_text = response.choices[0].message.content
     cleaned = result_text.replace("```latex", "").replace("```", "").strip()
+    cleaned = cleaned.replace('\r\n', '\n').replace('\r', '\n')
     with open (CV_TAILORED_PATH, 'w') as f:
         f.write(cleaned)
     return CV_TAILORED_PATH
