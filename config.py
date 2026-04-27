@@ -6,7 +6,12 @@ GROQ_API_KEY: str = ""
 
 # Adzuna Credentials
 ADZUNA_APP_ID: str = ""      #  app_id 
-ADZUNA_APP_KEY: str = ""     #  app_key
+ADZUNA_APP_KEY: str = ""#  app_key
+
+# Credentials LinkedIn
+LINKEDIN_EMAIL: str = "email.com"
+LINKEDINT_PASSWORD: str = "passw"
+
 
 # Job Search Parameters 
 KEYWORDS: list = [
