@@ -158,4 +158,4 @@ python main.py --title "platform engineer" --location *****
 ---
 
 *Built to automate my own job search. Currently targeting
-DevOps / Platform Engineering roles .*
+Cloud DevOps Engineer / Platform Engineering roles .*
