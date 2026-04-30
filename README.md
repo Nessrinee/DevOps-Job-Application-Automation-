@@ -8,6 +8,7 @@
 ![LaTeX](https://img.shields.io/badge/CV-LaTeX%20%2B%20pdflatex-orange)
 ![SQLite](https://img.shields.io/badge/DB-SQLite-lightgrey)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Playwright](https://img.shields.io/badge/Playwright-Automation-2EAD33?logo=playwright)
 
 > ⚠️ **This repository is a public showcase.**
 > The source code is maintained privately.
