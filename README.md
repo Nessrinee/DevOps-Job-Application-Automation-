@@ -1,6 +1,6 @@
 # DevOps Job Application Automation
 
-> AI-powered CLI pipeline that scrapes DevOps job listings, scores them against
+> AI powered CLI pipeline that scrapes DevOps job listings, scores them against
 > my CV using a LLaMA model, auto-tailors the CV, and compiles a ready-to-send PDF.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
